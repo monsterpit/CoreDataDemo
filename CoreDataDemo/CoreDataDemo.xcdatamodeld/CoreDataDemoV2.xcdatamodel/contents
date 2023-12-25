@@ -5,6 +5,7 @@
         <attribute name="firstName" optional="YES" attributeType="String" elementID="name"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="price" optional="YES" attributeType="String"/>
         <relationship name="toPassport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPassport" inverseName="toEmployee" inverseEntity="CDPassport"/>
         <relationship name="toVehicle" optional="YES" toMany="YES" minCount="1" maxCount="2" deletionRule="Nullify" destinationEntity="CDVehicle" inverseName="toEmployee" inverseEntity="CDVehicle"/>
         <uniquenessConstraints>
