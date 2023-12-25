@@ -19,6 +19,7 @@
 		5D3C97162B3A1DA5008B7069 /* CDEmployee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C97102B3A1DA5008B7069 /* CDEmployee+CoreDataProperties.swift */; };
 		5D3C97172B3A1DA5008B7069 /* CDPassport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C97112B3A1DA5008B7069 /* CDPassport+CoreDataClass.swift */; };
 		5D3C97182B3A1DA5008B7069 /* CDPassport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C97122B3A1DA5008B7069 /* CDPassport+CoreDataProperties.swift */; };
+		5D3C971A2B3A2271008B7069 /* EmloyeeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C97192B3A2271008B7069 /* EmloyeeProvider.swift */; };
 		5D75B2952B31694B00FB26DC /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D75B2932B31694B00FB26DC /* EmployeeTableViewCell.swift */; };
 		5D75B2962B31694B00FB26DC /* EmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D75B2942B31694B00FB26DC /* EmployeeTableViewCell.xib */; };
 		5D79CF4B2B316D29009C2192 /* AddEmployeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79CF4A2B316D29009C2192 /* AddEmployeeVC.swift */; };
@@ -55,6 +56,7 @@
 		5D3C97102B3A1DA5008B7069 /* CDEmployee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEmployee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5D3C97112B3A1DA5008B7069 /* CDPassport+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPassport+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5D3C97122B3A1DA5008B7069 /* CDPassport+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPassport+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5D3C97192B3A2271008B7069 /* EmloyeeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmloyeeProvider.swift; sourceTree = "<group>"; };
 		5D75B2932B31694B00FB26DC /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		5D75B2942B31694B00FB26DC /* EmployeeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeTableViewCell.xib; sourceTree = "<group>"; };
 		5D79CF4A2B316D29009C2192 /* AddEmployeeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeVC.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				5D834AF32B30334D00814C81 /* CoreDataDemo.xcdatamodeld */,
 				5D3C97072B3A1A9D008B7069 /* ProductMappingModel.xcmappingmodel */,
 				5D3C97092B3A1AD7008B7069 /* EmployeeMigrationPolicy.swift */,
+				5D3C97192B3A2271008B7069 /* EmloyeeProvider.swift */,
 			);
 			path = CoreDataDemo;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				5D3C97142B3A1DA5008B7069 /* CDVehicle+CoreDataProperties.swift in Sources */,
 				5D3C970A2B3A1AD7008B7069 /* EmployeeMigrationPolicy.swift in Sources */,
 				5D79CF5F2B3181AB009C2192 /* BaseRepository.swift in Sources */,
+				5D3C971A2B3A2271008B7069 /* EmloyeeProvider.swift in Sources */,
 				5D834AEB2B30334D00814C81 /* AppDelegate.swift in Sources */,
 				5D79CF662B3182CA009C2192 /* CDEmployeeExtension.swift in Sources */,
 				5D79CF5D2B3180A7009C2192 /* Passport.swift in Sources */,

@@ -6,25 +6,21 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    let employeeManager: EmployeeManager = EmployeeManager()
-    var employees: [Employee]? = []
+   
+    lazy var employeeProvider = {
+        EmloyeeProvider(fetchedResultControllerDelegate: self)
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-    //   createEmployee()
         
         printDirectory()
         
         setupNavigationBar()
         setupTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchEmployee()
-        tableView.reloadData()
     }
     
     private func setupNavigationBar(){
@@ -55,28 +51,32 @@ class ViewController: UIViewController {
         PersistantStorage.shared.saveContext()
     }
 
-    func fetchEmployee(){
-        employees = employeeManager.fetchEmployees()
-    }
 }
 
 extension ViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employees?.count ?? 0
+        return employeeProvider.fetchedResultController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as! EmployeeTableViewCell
-       
-        cell.setup(profileImage: UIImage(data: employees?[indexPath.row].image ?? Data()), name: employees?[indexPath.row].name ?? "", email: employees?[indexPath.row].email ?? "")
+        let employee = employeeProvider.fetchedResultController.object(at: indexPath).convertToEmployee()
+        cell.setup(profileImage: UIImage(data: employee.image ?? Data()), name: employee.name ?? "", email: employee.email ?? "")
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let addEmployeeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddEmployeeVC") as! AddEmployeeVC
-        addEmployeeVC.employee = employees?[indexPath.row]
+        addEmployeeVC.employee = employeeProvider.fetchedResultController.object(at: indexPath).convertToEmployee()
         navigationController?.pushViewController(addEmployeeVC, animated: true)
     }
     
+}
+
+
+extension ViewController: NSFetchedResultsControllerDelegate{
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
+    }
 }
