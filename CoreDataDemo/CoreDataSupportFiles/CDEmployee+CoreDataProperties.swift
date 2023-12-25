@@ -2,7 +2,7 @@
 //  CDEmployee+CoreDataProperties.swift
 //  CoreDataDemo
 //
-//  Created by Vikas Salian on 25/12/23.
+//  Created by Vikas Salian on 26/12/23.
 //
 //
 
@@ -19,9 +19,9 @@ extension CDEmployee {
     @NSManaged public var email: String?
     @NSManaged public var id: UUID?
     @NSManaged public var image: Data?
-    @NSManaged public var name: String?
+    @NSManaged public var firstName: String?
     @NSManaged public var toPassport: CDPassport?
-    @NSManaged public var toVehicle:  Set<CDVehicle>?
+    @NSManaged public var toVehicle: Set<CDVehicle>?
 
 }
 
@@ -35,10 +35,10 @@ extension CDEmployee {
     @NSManaged public func removeFromToVehicle(_ value: CDVehicle)
 
     @objc(addToVehicle:)
-    @NSManaged public func addToToVehicle(_ values:  Set<CDVehicle>)
+    @NSManaged public func addToToVehicle(_ values: Set<CDVehicle>)
 
     @objc(removeToVehicle:)
-    @NSManaged public func removeFromToVehicle(_ values:  Set<CDVehicle>)
+    @NSManaged public func removeFromToVehicle(_ values: Set<CDVehicle>)
 
 }
 

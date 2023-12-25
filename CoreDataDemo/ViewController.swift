@@ -51,7 +51,7 @@ class ViewController: UIViewController {
 
     func createEmployee(){
        let employee =  CDEmployee(context: PersistantStorage.shared.context)
-        employee.name = "Vikas"
+        employee.firstName = "Vikas"
         PersistantStorage.shared.saveContext()
     }
 

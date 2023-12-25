@@ -42,7 +42,7 @@ struct EmployeeDataRepository: EmployeeRepository{
             cdEmployee.toVehicle = vehicleSet
         }
         
-        cdEmployee.name = employee.name
+        cdEmployee.firstName = employee.name
         cdEmployee.id = employee.id
         cdEmployee.email = employee.email
         cdEmployee.image = employee.image
@@ -97,7 +97,7 @@ struct EmployeeDataRepository: EmployeeRepository{
         
         result.email = employee.email
         result.image = employee.image
-        result.name = employee.name
+        result.firstName = employee.name
         
         if let passport = employee.passport{
             let cdPassport = CDPassport(context: PersistantStorage.shared.context)

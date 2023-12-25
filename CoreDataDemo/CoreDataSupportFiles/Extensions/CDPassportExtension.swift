@@ -9,6 +9,6 @@ import Foundation
 
 extension CDPassport {
     func convertToPassport() -> Passport{
-        return  Passport(id: id,passportID: passportID,placeOfIssue: placeOfIssue,name:  toEmployee?.name )
+        return  Passport(id: id,passportID: passportID,placeOfIssue: placeOfIssue,name:  toEmployee?.firstName )
     }
 }
