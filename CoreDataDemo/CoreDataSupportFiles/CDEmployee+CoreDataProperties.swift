@@ -17,10 +17,10 @@ extension CDEmployee {
     }
 
     @NSManaged public var email: String?
+    @NSManaged public var firstName: String?
     @NSManaged public var id: UUID?
     @NSManaged public var image: Data?
-    @NSManaged public var firstName: String?
-    @NSManaged public var price: String?
+    @NSManaged public var price: NSDecimalNumber?
     @NSManaged public var toPassport: CDPassport?
     @NSManaged public var toVehicle: Set<CDVehicle>?
 
