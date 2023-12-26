@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     lazy var employeeProvider = {
         EmloyeeProvider(fetchedResultControllerDelegate: self)
     }()
+    
+    var employeeManager = EmployeeManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +27,9 @@ class ViewController: UIViewController {
     
     private func setupNavigationBar(){
         let addBarButton = UIBarButtonItem(image:  UIImage(systemName: "plus.app.fill"), style: .plain, target: self, action: #selector(handleAddEmployee))
-        navigationItem.rightBarButtonItems = [addBarButton]
+        
+        let newBarButton = UIBarButtonItem(image:  UIImage(systemName: "square.and.arrow.up.fill"), style: .plain, target: self, action: #selector(handleAddMultipleEmployees))
+        navigationItem.rightBarButtonItems = [addBarButton,newBarButton]
     }
     
     private func setupTableView(){
@@ -38,6 +42,14 @@ class ViewController: UIViewController {
     @objc func handleAddEmployee(){
         let addEmployeeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddEmployeeVC") as! AddEmployeeVC
         navigationController?.pushViewController(addEmployeeVC, animated: true)
+    }
+    
+    @objc func handleAddMultipleEmployees(){
+        let emp1 = Employee(name: "Wow1",id: UUID(),email: "Wow1", vehicle: nil)
+        let emp2 =  Employee(name: "Wow2",id: UUID(),email: "Wow2", vehicle: nil)
+        let emp3 =  Employee(name: "Wow3",id: UUID(),email: "Wow3", vehicle: nil)
+        let emp4 =  Employee(name: "Wow4",id: UUID(),email: "Wow4", vehicle: nil)
+        employeeManager.createsMultipleEmployee(employee: [emp1,emp2,emp3,emp4])
     }
     
     func printDirectory(){

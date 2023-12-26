@@ -11,6 +11,9 @@ struct EmployeeManager{
     
     private var employeeDataRepository: EmployeeDataRepository = EmployeeDataRepository()
     
+    func createsMultipleEmployee(employee: [Employee]){
+        employeeDataRepository.create(records: employee)
+    }
  
     func createEmployee(employee: Employee){
         var employee = employee

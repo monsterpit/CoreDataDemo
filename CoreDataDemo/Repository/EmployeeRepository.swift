@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol EmployeeRepository: BaseRepository{
     var maxVehicleCount: Int {get set}
@@ -16,6 +17,42 @@ struct EmployeeDataRepository: EmployeeRepository{
     typealias T = Employee
     
     var maxVehicleCount = 2
+    
+    func create(records employees: [Employee]){
+        //MARK: Background task on coreData
+        PersistantStorage.shared.persistentContainer.performBackgroundTask { privateManagedContext in
+            
+            let request = self.createBatchInsertRequest(records: employees)
+            do {
+                try privateManagedContext.execute(request)
+            }catch{
+                debugPrint("batch insert error")
+            }
+        }
+    }
+    
+    func createBatchInsertRequest(records: [Employee]) -> NSBatchInsertRequest{
+        //MARK: Perform Batch Operation for performance
+        let totalCount = records.count
+        var index = 0
+        
+        let batchInsert = NSBatchInsertRequest(entity: CDEmployee.entity()) { (managedObject: NSManagedObject) -> Bool in
+            
+            guard index < totalCount else { return true }
+            
+            if let employee = managedObject as? CDEmployee{
+                let data = records[index]
+                employee.id = UUID()
+                employee.firstName = data.name
+                employee.email = data.email
+                employee.image = data.image
+            }
+            index += 1
+            return false
+        }
+        
+        return batchInsert
+    }
     
     func create(record employee: Employee) {
         let cdEmployee = CDEmployee(context: PersistantStorage.shared.context)
